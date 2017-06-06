@@ -1,49 +1,29 @@
 {
-"AWSTemplateFormatVersion":"2010-09-09",
-"Description":"this is my first Ec2 instance",
- 
-  "Parameters" : {
-    "templateKeyName" : {
-      "Description" : "The EC2 Key Pair to allow SSH access to the instance",
-      "Type" : "AWS::EC2::KeyPair::KeyName"
-    }
-  },
-  "Resources" : {
-      "MyCftBucket":{
-          "Type":"AWS::S3::Bucket",
-          "Properties":{
-              "AccessControl":"PublicRead",
-               "WebsiteConfiguration" : {
-                    "IndexDocument" : "index.html",
-                    "ErrorDocument" : "error4.html"            
-               }               
-          }
-      },
-    "Ec2Instance" : {
-      "Type" : "AWS::EC2::Instance",
-      "Properties" : {
-        "SecurityGroups" : [ { "Ref" : "InstanceSecurityGroup" } ],
-        "KeyName" : { "Ref" : "templateKeyName"},
-        "ImageId" : "ami-b63769a1",
-        "InstanceType":"t2.micro"
-      }
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "60cb4d6e-d84a-4a30-89e9-6c71e5d8a54b": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 132,
+                    "y": 84
+                },
+                "z": 0
+            }
+        }
     },
-
-    "InstanceSecurityGroup" : {
-      "Type" : "AWS::EC2::SecurityGroup",
-      "Properties" : {
-        "GroupDescription" : "Enable SSH access via port 22",
-        "SecurityGroupIngress" : [ {
-          "IpProtocol" : "tcp",
-          "FromPort" : "22",
-          "ToPort" : "22",
-          "CidrIp" : "0.0.0.0/0"
-        } ]
-      }
-    }
+    "Resources": {
+        "news306062017": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "60cb4d6e-d84a-4a30-89e9-6c71e5d8a54b"
+                }
+            }
+        }
     }
 }
-
-       
-
-
