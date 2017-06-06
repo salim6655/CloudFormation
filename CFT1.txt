@@ -15,7 +15,7 @@
               "AccessControl":"PublicRead",
                "WebsiteConfiguration" : {
                     "IndexDocument" : "index.html",
-                    "ErrorDocument" : "error.html"            
+                    "ErrorDocument" : "error2.html"            
                }               
           }
       },
